@@ -1,7 +1,7 @@
 //@@viewOn:imports
 import { createVisualComponent, PropTypes, Utils, useState } from "uu5g05";
 import { Button, useAlertBus } from "uu5g05-elements";
-import CreateForm from "./create-form.js";
+import CreateListForm from "./create-list-form.js";
 import Config from "./config/config.js";
 //@@viewOff:imports
 
@@ -15,16 +15,16 @@ const Mode = {
 //@@viewOn:helpers
 function CreateButton(props) {
   return (
-    <Button {...props} colorScheme="primary" significance="highlighted">
-      Create Item
+    <Button {...props} colorScheme="primary" significance="highlighted" style={{ backgroundColor: "#81c535"}}>
+      Create List
     </Button>
   );
 }
 //@@viewOff:helpers
 
-const CreateView = createVisualComponent({
+const CreateListView = createVisualComponent({
   //@@viewOn:statics
-  uu5Tag: Config.TAG + "CreateView",
+  uu5Tag: Config.TAG + "CreateListView",
   //@@viewOff:statics
 
   //@@viewOn:propTypes
@@ -46,10 +46,10 @@ const CreateView = createVisualComponent({
 
     function handleSubmit(event) {
       try {
-        props.onCreate(props.currentID, event.data.value);
-        // console.log(event.data.value)
+        props.onCreate(event.data.value.name, event.data.value.owner, event.data.value.ownerName);
       } catch (error) {
-        throw new Utils.Error.Message("Item create failed!", error);
+        // We pass Error.Message instance to the Uu5Forms.Form that shows alert
+        throw new Utils.Error.Message("list create failed!", error);
       }
 
       addAlert({
@@ -69,13 +69,13 @@ const CreateView = createVisualComponent({
       case Mode.BUTTON:
         return <CreateButton {...elementProps} onClick={() => setMode(Mode.FORM)} />;
       default:
-        return <CreateForm {...elementProps} onSubmit={handleSubmit} onCancel={() => setMode(Mode.BUTTON)} />;
+        return <CreateListForm {...elementProps} onSubmit={handleSubmit} onCancel={() => setMode(Mode.BUTTON)} />;
     }
     //@@viewOff:render
   },
 });
 
 //@@viewOn:exports
-export { CreateView };
-export default CreateView;
+export { CreateListView  };
+export default CreateListView;
 //@@viewOff:exports

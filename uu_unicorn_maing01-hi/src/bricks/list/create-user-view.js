@@ -3,6 +3,7 @@ import { createVisualComponent, PropTypes, Utils, useState } from "uu5g05";
 import { Button, useAlertBus } from "uu5g05-elements";
 import CreateUserForm from "./create-user-form.js";
 import Config from "./config/config.js";
+
 //@@viewOff:imports
 
 //@@viewOn:constants
@@ -45,17 +46,16 @@ const CreateUserView = createVisualComponent({
     const [mode, setMode] = useState(Mode.BUTTON);
 
     function handleSubmit(event) {
-      let user;
-
       try {
-        user = props.onCreate(event.data.value);
+      
+        props.onCreate(event.data.value.name, event.data.value.id);
       } catch (error) {
         // We pass Error.Message instance to the Uu5Forms.Form that shows alert
         throw new Utils.Error.Message("User create failed!", error);
       }
 
       addAlert({
-        message: `User ${user.name} has been created.`,
+        message: `User ${event.data.value.name} has been created.`,
         priority: "success",
         durationMs: 2000,
       });

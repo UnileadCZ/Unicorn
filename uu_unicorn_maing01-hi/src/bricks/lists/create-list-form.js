@@ -4,9 +4,9 @@ import { Form, FormText, SubmitButton, CancelButton } from "uu5g05-forms";
 import Config from "./config/config.js";
 //@@viewOff:imports
 
-const CreateUserForm = createVisualComponent({
+const CreateFormList = createVisualComponent({
   //@@viewOn:statics
-  uu5Tag: Config.TAG + "CreateUserForm",
+  uu5Tag: Config.TAG + "CreateFormList",
   //@@viewOff:statics
 
   //@@viewOn:propTypes
@@ -29,11 +29,12 @@ const CreateUserForm = createVisualComponent({
 
     return (
       <Form {...elementProps} onSubmit={props.onSubmit}>
-        <FormText name="name" label="name of user" required />
-        <FormText name="id" label="id of user" required />
+        <FormText name="name" label="Name of list" required />
+        <FormText name="owner" label="Owner ID" required />
+        <FormText name="ownerName" label="Owner Name" required />
         <div style={{ display: "flex", gap: 8, justifyContent: "flex-end", paddingTop: 8 }}>
           <CancelButton onClick={props.onCancel}>Cancel</CancelButton>
-          <SubmitButton>Add user</SubmitButton>
+          <SubmitButton style={{ backgroundColor: "#81c535"}}>Create List</SubmitButton>
         </div>
       </Form>
     );
@@ -42,6 +43,6 @@ const CreateUserForm = createVisualComponent({
 });
 
 //@@viewOn:exports
-export { CreateUserForm };
-export default CreateUserForm;
+export { CreateFormList };
+export default CreateFormList;
 //@@viewOff:exports

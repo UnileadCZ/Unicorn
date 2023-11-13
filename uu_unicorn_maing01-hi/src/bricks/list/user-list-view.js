@@ -66,13 +66,21 @@ const UserListView = createVisualComponent({
 
     return (
       <div {...attrs}>
-        {props.shoppingList.userList.map((joke) => (
+        {props.shoppingList.userList?.map((joke) => (
           <div style={{ display: "flex", flexDirection: "row", gap: 8 }} key={joke.id}>
             <UserTile
               name={joke.name}
               joke={joke}
               onDelete={handleDelete}
-              style={{ width: 200, display: "flex", justifyContent: "space-around", alignItems: "center" }}
+              style={{
+                width: 200,
+                display: "flex",
+                justifyContent: "space-around",
+                alignItems: "center",
+                borderRadius: "8px",
+                margin: "8px",
+                padding: "8px",
+              }}
             />
           </div>
         ))}

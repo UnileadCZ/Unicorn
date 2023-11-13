@@ -3,7 +3,7 @@ import { Utils, createVisualComponent, useSession, Lsi } from "uu5g05";
 import Uu5Elements from "uu5g05-elements";
 import Plus4U5Elements from "uu_plus4u5g02-elements";
 import { withRoute } from "uu_plus4u5g02-app";
-
+import React from "react";
 import Config from "./config/config.js";
 import WelcomeRow from "../bricks/welcome-row.js";
 import RouteBar from "../core/route-bar.js";
@@ -38,10 +38,10 @@ let Home = createVisualComponent({
   //@@viewOn:defaultProps
   defaultProps: {},
   //@@viewOff:defaultProps
-
   render(props) {
     //@@viewOn:private
     const { identity } = useSession();
+
     //@@viewOff:private
 
     //@@viewOn:interface
@@ -52,6 +52,7 @@ let Home = createVisualComponent({
     return (
       <div {...attrs}>
         <RouteBar />
+
         <WelcomeRow left={<Plus4U5Elements.PersonPhoto size="xl" borderRadius="none" />}>
           <Uu5Elements.Text category="story" segment="heading" type="h2">
             <Lsi import={importLsi} path={["Home", "welcome"]} />

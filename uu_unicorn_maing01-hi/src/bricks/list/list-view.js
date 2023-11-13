@@ -19,6 +19,7 @@ const Css = {
 
   listViewTile: () =>
     Config.Css.css({
+      borderRadius: "8px",
       width: 800,
       margin: "24px",
       "@media (max-width: 1000px)": {
@@ -63,12 +64,12 @@ const ListView = createVisualComponent({
     }
 
     function handleDelete(event) {
-      const list = event.data;
+      const item = event.data;
 
       try {
-        props.onDelete(list);
+        props.onDelete(props.id, item.id);
         addAlert({
-          message: `The joke ${list.name} has been deleted.`,
+          message: `The joke ${item.name} has been deleted.`,
           priority: "success",
           durationMs: 2000,
         });
@@ -82,7 +83,7 @@ const ListView = createVisualComponent({
       const id = event.data;
 
       try {
-        props.onUpdate(id.id);
+        props.onUpdate(props.id, id.id);
         addAlert({
           message: `The item ${id.name} has been resolved.`,
           priority: "success",
@@ -101,13 +102,13 @@ const ListView = createVisualComponent({
     return (
       <div {...attrs}>
         {props.showResolved
-          ? props.shoppingList.resolvedShoppingLists.map((joke) => (
-              <ResolvedTile key={joke.id} joke={joke} className={Css.listViewTile()} />
+          ? props.resolvedItems.singleShoppingList?.map((resolvedItem) => (
+              <ResolvedTile key={resolvedItem.id} joke={resolvedItem} className={Css.listViewTile()} />
             ))
-          : props.shoppingList.singleShoppingList.map((joke) => (
+          : props.shoppingList.singleShoppingList?.map((item) => (
               <Tile
-                key={joke.id}
-                joke={joke}
+                key={item.id}
+                joke={item}
                 onDelete={handleDelete}
                 onUpdate={handleUpdate}
                 className={Css.listViewTile()}
@@ -120,6 +121,6 @@ const ListView = createVisualComponent({
 });
 
 //@@viewOn:exports
-export { ListView };
+export { ListView as ListView };
 export default ListView;
 //@@viewOff:exports

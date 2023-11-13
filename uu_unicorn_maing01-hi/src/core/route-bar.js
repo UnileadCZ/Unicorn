@@ -33,7 +33,8 @@ const RouteBar = createVisualComponent({
     const [, setRoute] = useRoute();
 
     const appActionList = [
-      { children: <Lsi import={importLsi} path={["Menu", "home"]}  />, onClick: () => setRoute("home") },
+      { children: <Lsi import={importLsi} path={["Menu", "home"]} />, onClick: () => setRoute("home") },
+      { children: <Lsi import={importLsi} path={["Menu", "lists"]} />, onClick: () => setRoute("lists") },
       { children: <Lsi import={importLsi} path={["Menu", "list"]} />, onClick: () => setRoute("list") },
       {
         children: <Lsi import={importLsi} path={["Menu", "about"]} />,
