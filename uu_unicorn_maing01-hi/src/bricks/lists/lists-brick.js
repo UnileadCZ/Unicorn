@@ -2,7 +2,7 @@
 import { createVisualComponent, PropTypes, Utils, useRoute } from "uu5g05";
 import { Box, Text, Line, Button, DateTime } from "uu5g05-elements";
 import Config from "./config/config.js";
-import { useJokes } from "../list-context.js";
+import { useJokes } from "../context-list.js";
 //@@viewOff:imports
 
 const ListsTile = createVisualComponent({

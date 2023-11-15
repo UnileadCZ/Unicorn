@@ -2,8 +2,8 @@
 import { createVisualComponent, Utils, Content } from "uu5g05";
 import Config from "./config/config.js";
 import { useAlertBus } from "uu5g05-elements";
-import ListsTile from "./lists-tile.js";
-import { useJokes } from "../list-context.js";
+import ListsTile from "./lists-brick.js";
+import { useJokes } from "../context-list.js";
 import { useState } from "uu5g05";
 //@@viewOff:imports
 

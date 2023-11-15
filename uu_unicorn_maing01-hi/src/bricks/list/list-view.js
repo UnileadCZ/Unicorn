@@ -1,8 +1,8 @@
 //@@viewOn:imports
 import { createVisualComponent, PropTypes, Utils } from "uu5g05";
 import { useAlertBus } from "uu5g05-elements";
-import Tile from "./tile";
-import ResolvedTile from "./resolved-tile";
+import Tile from "./brick.js";
+import ResolvedTile from "./final-brick.js";
 import Config from "./config/config.js";
 //@@viewOff:imports
 

@@ -6,10 +6,10 @@ import Config from "./config/config.js";
 import RouteBar from "../core/route-bar.js";
 import ListView from "../bricks/list/list-view.js";
 import CreateView from "../bricks/list/create-view.js";
-import CreateUserView from "../bricks/list/create-user-view.js";
-import NewTitleView from "../bricks/list/new-title-view.js";
+import CreateUserView from "../bricks/list/generate-user-interface.js";
+import NewTitleView from "../bricks/list/new-header-display.js";
 import UserListView from "../bricks/list/user-list-view.js";
-import { useJokes } from "../bricks/list-context.js";
+import { useJokes } from "../bricks/context-list.js";
 //@@viewOff:imports
 
 //@@viewOn:constants

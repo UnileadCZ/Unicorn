@@ -3,9 +3,9 @@ import { createVisualComponent, Utils, Content } from "uu5g05";
 import { withRoute } from "uu_plus4u5g02-app";
 import RouteBar from "../core/route-bar.js";
 import Config from "./config/config.js";
-import { useJokes } from "../bricks/list-context.js";
+import { useJokes } from "../bricks/context-list.js";
 import ListsView from "../bricks/lists/lists-view.js";
-import CreateListView from "../bricks/lists/create-list-view.js";
+import CreateListView from "../bricks/lists/generate-list-form.js";
 //@@viewOff:imports
 
 //@@viewOn:constants

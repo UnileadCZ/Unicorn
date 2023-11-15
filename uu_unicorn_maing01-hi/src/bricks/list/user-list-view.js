@@ -2,7 +2,7 @@
 import { createVisualComponent, Utils } from "uu5g05";
 import { useAlertBus } from "uu5g05-elements";
 import Config from "./config/config.js";
-import UserTile from "./user-tile.js";
+import UserTile from "./user-brick.js";
 //@@viewOff:imports
 
 //@@viewOn:constants

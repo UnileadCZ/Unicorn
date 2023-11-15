@@ -1,9 +1,9 @@
 //@@viewOn:imports
 import { createVisualComponent, PropTypes, Utils, useState } from "uu5g05";
 import { Button, useAlertBus } from "uu5g05-elements";
-import NewTitleForm from "./new-title-form.js";
+import NewTitleForm from "./new-header-form.js";
 import Config from "./config/config.js";
-import { useJokes } from "../list-context.js";
+import { useJokes } from "../context-list.js";
 //@@viewOff:imports
 
 //@@viewOn:constants

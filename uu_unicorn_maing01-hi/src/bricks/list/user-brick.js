@@ -2,7 +2,7 @@
 import { createVisualComponent, Utils } from "uu5g05";
 import { Box, Text, Button } from "uu5g05-elements";
 import Config from "./config/config.js";
-import { useJokes } from "../list-context.js";
+import { useJokes } from "../context-list.js";
 //@@viewOff:imports
 
 const UserTile = createVisualComponent({

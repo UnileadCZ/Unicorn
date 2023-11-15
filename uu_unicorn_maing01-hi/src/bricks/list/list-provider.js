@@ -1,7 +1,7 @@
 //@@viewOn:imports
 import { createComponent, Utils, useState, useSession } from "uu5g05";
 import Config from "./config/config";
-import Context from "../list-context";
+import Context from "../context-list";
 //@@viewOff:imports
 
 const initialLists = [

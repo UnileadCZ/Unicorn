@@ -1,7 +1,7 @@
 //@@viewOn:imports
 import { createVisualComponent, PropTypes, Utils, useState } from "uu5g05";
 import { Button, useAlertBus } from "uu5g05-elements";
-import CreateUserForm from "./create-user-form.js";
+import CreateUserForm from "./user-registration-form.js";
 import Config from "./config/config.js";
 
 //@@viewOff:imports
