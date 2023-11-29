@@ -25,73 +25,49 @@
         "sysStateList": ["created"],
         "profileList": ["Public", "AwidLicenseOwner"]
       },
-      "helloWorld": {
-        "sysStateList": ["active"],
-        "profileList": ["Public"]
-      },
-      "joke/create": {
-        "sysStateList": ["active"],
-        "profileList": ["Executives", "Readers"]
-      },
       "shoppingLists/list": {
         "sysStateList": ["active"],
-        "profileList": ["CREATORS", "MEMBERS"]
+        "profileList": ["Executives"]
       },
-      "shoppingLists/singleList/:id/item/list": {
+      "shoppingLists/singleList/get": {
         "sysStateList": ["active"],
-        "profileList": ["CREATORS", "MEMBERS"]
+        "profileList": ["Executives"]
       },
-      "shoppingLists/singleList/create": {
+      "shoppingLists/singleList/createList": {
         "sysStateList": ["active"],
-        "profileList": ["CREATORS"]
+        "profileList": ["Executives"]
       },
-      "shoppingLists/singleList/:id/delete": {
+      "shoppingLists/singleList/delete": {
         "sysStateList": ["active"],
-        "profileList": ["CREATORS"]
+        "profileList": ["Executives"]
       },
-      "shoppingLists/singleList/:id/name/update": {
+      "shoppingLists/singleList/name/update": {
         "sysStateList": ["active"],
-        "profileList": ["CREATORS"]
+        "profileList": ["Executives"]
       },
-      "shoppingLists/singleList/:id/archived/update": {
+      "shoppingLists/singleList/archived/update": {
         "sysStateList": ["active"],
-        "profileList": ["CREATORS"]
+        "profileList": ["Executives"]
       },
-      "shoppingLists/archived/list": {
+      "shoppingLists/singleList/item/create": {
         "sysStateList": ["active"],
-        "profileList": ["CREATORS", "MEMBERS"]
+        "profileList": ["Executives"]
       },
-      "shoppingLists/singleList/:id/item/create": {
+      "shoppingLists/singleList/item/delete": {
         "sysStateList": ["active"],
-        "profileList": ["CREATORS", "MEMBERS"]
+        "profileList": ["Executives"]
       },
-      "shoppingLists/singleList/:id/item/:id/delete": {
+      "shoppingLists/singleList/item/resolved/update": {
         "sysStateList": ["active"],
-        "profileList": ["CREATORS", "MEMBERS"]
+        "profileList": ["Executives"]
       },
-      "shoppingLists/singleList/:id/item/:id/resolved/update": {
+      "shoppingLists/singleList/authorizedUsers/create": {
         "sysStateList": ["active"],
-        "profileList": ["CREATORS", "MEMBERS"]
+        "profileList": ["Executives"]
       },
-      "shoppingLists/singleList/:id/resolved/list": {
+      "shoppingLists/singleList/authorizedUsers/delete": {
         "sysStateList": ["active"],
-        "profileList": ["CREATORS", "MEMBERS"]
-      },
-      "shoppingLists/singleList/:id/authorizedUsers/list": {
-        "sysStateList": ["active"],
-        "profileList": ["CREATORS", "MEMBERS"]
-      },
-      "shoppingLists/singleList/:id/authorizedUsers/create": {
-        "sysStateList": ["active"],
-        "profileList": ["CREATORS"]
-      },
-      "shoppingLists/singleList/:id/authorizedUsers/:id/delete": {
-        "sysStateList": ["active"],
-        "profileList": ["CREATORS"]
-      },
-      "shoppingLists/singleList/:id/authorizedUsers/:myID/delete": {
-        "sysStateList": ["active"],
-        "profileList": ["MEMBERS"]
+        "profileList": ["Executives"]
       }
     }
   }

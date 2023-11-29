@@ -47,7 +47,7 @@ let Lists = createVisualComponent({
       <>
         <RouteBar />
         <div className={Css.main()}>
-          <div className="create-list-view">
+          <div className="generate-list-view">
             <CreateListView onCreate={create} />
           </div>
           <div className="lists-view">
