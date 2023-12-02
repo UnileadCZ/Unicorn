@@ -65,7 +65,7 @@ const UserListView = createVisualComponent({
 
     //@@viewOn:render
     const attrs = Utils.VisualComponent.getAttrs(props);
-    console.log(props.shoppingList?.authorizedUsers)
+    console.log(props.shoppingList?.authorizedUsers);
     return (
       <div {...attrs}>
         {props.shoppingList?.authorizedUsers?.map((joke) => (
@@ -74,10 +74,18 @@ const UserListView = createVisualComponent({
               name={joke.id}
               joke={joke}
               onDelete={handleDelete}
-              style={{ width: 200, display: "flex", justifyContent: "space-around", alignItems: "center" }}
+              style={{
+                width: 200,
+                display: "flex",
+                justifyContent: "space-around",
+                alignItems: "center",
+                border: "none",
+                boxShadow: "none",
+                borderRadius: "4px",
+              }}
             />
           </div>
-        ))} 
+        ))}
       </div>
     );
     //@@viewOff:render

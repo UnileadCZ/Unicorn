@@ -15,7 +15,15 @@ const Mode = {
 //@@viewOn:helpers
 function CreateButton(props) {
   return (
-    <Button {...props} colorScheme="primary" significance="highlighted">
+    <Button
+      {...props}
+      colorScheme="primary"
+      significance="highlighted"
+      style={{
+        margin: "20px",
+        padding: "25px"
+      }}
+    >
       Create List
     </Button>
   );
@@ -76,6 +84,6 @@ const CreateListView = createVisualComponent({
 });
 
 //@@viewOn:exports
-export { CreateListView  };
+export { CreateListView };
 export default CreateListView;
 //@@viewOff:exports

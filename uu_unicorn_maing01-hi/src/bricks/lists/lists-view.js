@@ -38,6 +38,7 @@ const Css = {
       background-color: #dcdcdc;
     }
   }
+  
 
   > div {
     display: flex;
@@ -128,7 +129,7 @@ const ListsView = createVisualComponent({
         {/* Render either archived or active lists based on the state */}
         <CreateListView onCreate={jokeDataList.handlerMap.create}/>
         {jokeDataList.data.map((list) => (
-          <div className="list-tile">
+          <div>
             <ListsTile
               key={list.id}
               list={list}

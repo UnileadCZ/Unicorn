@@ -16,8 +16,8 @@ const Mode = {
 //@@viewOn:helpers
 function NewTitleButton(props) {
   return (
-    <Button {...props} colorScheme="primary" significance="highlighted">
-      change title
+    <Button {...props} colorScheme="primary" style={{ margin: 10 }} significance="highlighted">
+      Change title
     </Button>
   );
 }
@@ -47,10 +47,7 @@ const NewTitleView = createVisualComponent({
     const { jokeDataList } = useJokes();
 
     function handleSubmit(event) {
-
-
       try {
-      
         jokeDataList.handlerMap.updateName();
         addAlert({
           message: `List title has been updated to ${event.data.value.name}.`,
@@ -71,11 +68,11 @@ const NewTitleView = createVisualComponent({
 
     return (
       <>
-        {(mode === Mode.BUTTON ? (
-            <NewTitleButton {...elementProps} onClick={() => setMode(Mode.FORM)} />
-          ) : (
-            <NewTitleForm {...elementProps} onSubmit={handleSubmit} onCancel={() => setMode(Mode.BUTTON)} />
-          ))}
+        {mode === Mode.BUTTON ? (
+          <NewTitleButton {...elementProps} onClick={() => setMode(Mode.FORM)} />
+        ) : (
+          <NewTitleForm {...elementProps} onSubmit={handleSubmit} onCancel={() => setMode(Mode.BUTTON)} />
+        )}
       </>
     );
     //@@viewOff:render

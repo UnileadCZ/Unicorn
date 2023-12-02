@@ -12,29 +12,39 @@ import NewTitleView from "./new-title-view.js";
 
 //@@viewOn:css
 const Css = {
-  // ... (your existing styles)
-
-  listViewContainer: () =>
+  
+  headerStyle: () =>
     Config.Css.css({
-      display: "flex",
-      flexWrap: "wrap",
-      justifyContent: "center",
+      textAlign: "center",
+      width: "100%",
     }),
 
   listViewTile: () =>
     Config.Css.css({
-      width: 800,
-      margin: "24px",
-      "@media (max-width: 1000px)": {
-        width: 550, // Adjust as needed for smaller screens
+      width: "100%",
+      margin: "10px auto",
+      padding: "10px",
+      backgroundColor: "#ffffff", // Changed tile background color
+      boxShadow: "0 4px 8px 0 rgba(0,0,0,0.1)", // Softer shadow
+      borderRadius: "10px",
+      transition: "transform 0.2s, box-shadow 0.2s", // Smoother transition
+      "&:hover": {
+        transform: "scale(1.02)",
+        boxShadow: "0 6px 12px 0 rgba(0,0,0,0.2)",
       },
-      "@media (max-width: 768px)": {
-        width: 400, // Adjust as needed for smaller screens
-      },
-      // Add more media queries for different screen sizes if necessary
+    }),
+
+  userListView: () =>
+    Config.Css.css({
+      width: "100%", // Full width to maintain consistency
+      maxWidth: "600px", // Adjust this value based on your design requirements
+      margin: "20px auto", // Vertical margin for spacing, centered horizontally
+      padding: "15px", // Inner spacing
+      backgroundColor: "#f5f5f5", // A light grey background color for contrast
+      borderRadius: "8px", // Slightly rounded corners for a softer look
+      boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)", // A subtle shadow for depth
     }),
 };
-
 //@@viewOff:css
 
 const ListView = createVisualComponent({
@@ -61,22 +71,13 @@ const ListView = createVisualComponent({
     const [route] = useRoute();
     const detailId = route.params.id;
 
-
- 
-
-
-
     const shoppingListDetail = useMemo(() => {
       return jokeDataList.data?.find((shoppingList) => {
         return shoppingList.data.id === detailId;
       });
     }, [jokeDataList, detailId]);
-       
-    
-    
-   
-      console.log(shoppingListDetail.data)
-  
+
+    console.log(shoppingListDetail.data);
 
     const { addAlert } = useAlertBus();
 
@@ -126,23 +127,22 @@ const ListView = createVisualComponent({
 
     return (
       <div {...attrs}>
-                  <div>
-            <h1>USER LIST</h1>
-            {isUserOwner(detailId) && 
-            <div>
-                 <NewTitleView/>
+        <h1 className={Css.headerStyle()}>USER LIST</h1>
+
+        {isUserOwner(detailId) && (
+          <div>
+            <NewTitleView />
             <CreateUserView />
-            </div>
-         
-            }
-            {/* {isOwner && <CreateUserView onCreate={createUser} style={{ maxWidth: 400, display: "block" }} />} */}
-            <UserListView shoppingList={shoppingListDetail.data} />
           </div>
+        )}
+        <div className={Css.userListView()}>
+          <UserListView shoppingList={shoppingListDetail.data} />
+        </div>
         <h2> {shoppingListDetail.data.name}</h2>
         {shoppingListDetail.data.shoppingListItems?.map((item) => {
           return (
             <Tile
-             key={item.id}
+              key={item.id}
               item={item}
               className={Css.listViewTile()}
               onDelete={handleDelete}
@@ -150,7 +150,6 @@ const ListView = createVisualComponent({
             />
           );
         })}
-           
       </div>
     );
     //@@viewOff:render
