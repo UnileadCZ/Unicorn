@@ -2,9 +2,10 @@
 import { createVisualComponent, Utils, Content } from "uu5g05";
 import Config from "./config/config.js";
 import { useAlertBus } from "uu5g05-elements";
-import ListsTile from "./lists-brick.js";
+import ListsTile from "./lists-tile.js";
 import { useJokes } from "../context-list.js";
 import { useState } from "uu5g05";
+import CreateListView from "./create-list-view.js";
 //@@viewOff:imports
 
 //@@viewOn:constants
@@ -38,7 +39,6 @@ const Css = {
     }
   }
 
-  // Styling for the list tiles container
   > div {
     display: flex;
     justify-content: center; // Centers the child elements (list tiles)
@@ -66,49 +66,50 @@ const ListsView = createVisualComponent({
 
   render(props) {
     //@@viewOn:private
-    const { currentListId, selectList, getArchivedLists, getActiveLists } = useJokes();
+    const { jokeDataList } = useJokes();
     const { addAlert } = useAlertBus();
-    const activeList = getActiveLists();
-    const archivedList = getArchivedLists();
-    const [showArchived, setShowArchived] = useState(false);
+    // const activeList = getActiveLists();
+    // const archivedList = getArchivedLists();
+    // const [showArchived, setShowArchived] = useState(false);
 
-    function showError(error, header = "") {
-      addAlert({
-        header,
-        message: error.message,
-        priority: "error",
-      });
-    }
+     function showError(error, header = "") {
+       addAlert({
+         header,
+         message: error.message,
+         priority: "error",
+       });
+     }
 
     function handleDelete(event) {
-      const list = event.data.id;
-      try {
-        props.onDelete(list);
-        addAlert({
-          message: `The list ${event.data.listName} has been deleted.`,
-          priority: "success",
-          durationMs: 2000,
-        });
-      } catch (error) {
-        ListsView.logger.error("Error deleting list", error);
-        showError(error, "List delete failed!");
-      }
-    }
+      // const list = event.data.id;
+       try {
+        jokeDataList.handlerMap.deleteList()
+         addAlert({
+           message: `list has ${event.data.data.name} been deleted.`,
+           priority: "success",
+           durationMs: 2000,
+         });
+       } catch (error) {
+         ListsView.logger.error("Error deleting list", error);
+         showError(error, "List delete failed!");
+       }
+     }
+    
 
-    function handleUpdate(event) {
-      const list = event.data;
-      try {
-        props.onUpdate(list.id);
-        addAlert({
-          message: `The list ${list.listName} has been archived.`,
-          priority: "success",
-          durationMs: 2000,
-        });
-      } catch (error) {
-        ListView.logger.error("Error archiving list", error);
-        showError(error, "List archive failed!");
-      }
-    }
+     function handleUpdate(event) {
+       const list = event.data;
+       try {
+             jokeDataList.handlerMap.updateName()
+         addAlert({
+           message: `The list ${event.data.data.name} has been archived.`,
+           priority: "success",
+           durationMs: 2000,
+         });
+       } catch (error) {
+         ListView.logger.error("Error archiving list", error);
+         showError(error, "List archive failed!");
+       }
+     }
     //@@viewOff:private
 
     //@@viewOn:interface
@@ -116,25 +117,26 @@ const ListsView = createVisualComponent({
 
     //@@viewOn:render
     const attrs = Utils.VisualComponent.getAttrs(props, Css.main());
-    const listsToDisplay = showArchived ? archivedList : activeList;
+    // const listsToDisplay = showArchived ? archivedList : activeList;
     return (
       <div {...attrs}>
         {/* Button to toggle between archived and active lists */}
-        <button className="toggle-button" onClick={() => setShowArchived(!showArchived)}>
-          {showArchived ? "Active Lists" : "Archived Lists"}
-        </button>
+        {/* <button className="toggle-button" onClick={() => setShowArchived(!showArchived)}>
+          {showArchived ? "Show Active Lists" : "Show Archived Lists"}
+        </button> */}
 
         {/* Render either archived or active lists based on the state */}
-        {listsToDisplay.map((list) => (
-          <div>
+        <CreateListView onCreate={jokeDataList.handlerMap.create}/>
+        {jokeDataList.data.map((list) => (
+          <div className="list-tile">
             <ListsTile
               key={list.id}
               list={list}
-              selectList={selectList}
+              // selectList={selectList}
               onUpdate={handleUpdate}
-              selected={list.id === currentListId}
+              // selected={list.id === currentListId}
               onDelete={handleDelete}
-              isArchived={showArchived}
+              // isArchived={showArchived}
             />
           </div>
         ))}

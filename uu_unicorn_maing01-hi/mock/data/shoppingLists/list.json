@@ -1,0 +1,650 @@
+{
+  "itemList": [
+    {
+      "name": "Daniel List",
+      "ownerId": "2549-3779-3966-0000",
+      "awid": "987654321",
+      "archived": true,
+      "sys": {
+        "cts": "2023-11-27T12:00:00Z",
+        "mts": "2023-11-27T15:00:00Z",
+        "rev": 6
+      },
+      "shoppingListItems": [
+        {
+          "id": "item1",
+          "itemName": "Milk",
+          "resolved": false
+        },
+        {
+          "id": "item2",
+          "itemName": "Bread",
+          "resolved": false
+        }
+      ],
+      "authorizedUsers": [
+        {
+          "userID": "user123"
+        }
+      ],
+      "visibility": true,
+      "uuIdentity": "identity001",
+      "uuidentityName": "Michal Havlik",
+      "id": "1"
+    },
+    {
+      "name": "John List",
+      "ownerId": "2549-3779-3966-0000",
+      "awid": "987654321",
+      "archived": true,
+      "sys": {
+        "cts": "2023-11-27T12:00:00Z",
+        "mts": "2023-11-27T15:00:00Z",
+        "rev": 6
+      },
+      "shoppingListItems": [
+        {
+          "id": "item1",
+          "itemName": "Banana",
+          "resolved": false
+        },
+        {
+          "id": "item2",
+          "itemName": "Cheese",
+          "resolved": false
+        }
+      ],
+      "authorizedUsers": [
+        {
+          "userID": "user123"
+        },
+        {
+          "userID": "user333213"
+        }
+      ],
+      "visibility": true,
+      "uuIdentity": "identity001",
+      "uuidentityName": "Michal Havlik",
+      "id": "2"
+    },
+    {
+      "name": "Emily List",
+      "ownerId": "2549-3779-3966-0000",
+      "awid": "987654321",
+      "archived": true,
+      "sys": {
+        "cts": "2023-11-27T12:00:00Z",
+        "mts": "2023-11-27T15:00:00Z",
+        "rev": 6
+      },
+      "shoppingListItems": [
+        {
+          "id": "item1",
+          "itemName": "Milk",
+          "resolved": false
+        },
+        {
+          "id": "item2",
+          "itemName": "Toast",
+          "resolved": false
+        }
+      ],
+      "authorizedUsers": [
+        {
+          "userID": "user123"
+        }
+      ],
+      "visibility": true,
+      "uuIdentity": "identity001",
+      "uuidentityName": "Michal Havlik",
+      "id": "3"
+    },
+    {
+      "name": "Alex List",
+      "ownerId": "12345678",
+      "awid": "987654321",
+      "archived": true,
+      "sys": {
+        "cts": "2023-11-27T12:00:00Z",
+        "mts": "2023-11-27T15:00:00Z",
+        "rev": 6
+      },
+      "shoppingListItems": [
+        {
+          "id": "item1",
+          "itemName": "Meat",
+          "resolved": false
+        },
+        {
+          "id": "item2",
+          "itemName": "olives",
+          "resolved": false
+        }
+      ],
+      "authorizedUsers": [
+        {
+          "userID": "user123"
+        }
+      ],
+      "visibility": true,
+      "uuIdentity": "identity001",
+      "uuidentityName": "Michal Havlik",
+      "id": "4"
+    },
+    {
+      "name": "Sarah List",
+      "ownerId": "12345678",
+      "awid": "987654321",
+      "archived": true,
+      "sys": {
+        "cts": "2023-11-27T12:00:00Z",
+        "mts": "2023-11-27T15:00:00Z",
+        "rev": 6
+      },
+      "shoppingListItems": [
+        {
+          "id": "item1",
+          "itemName": "Milk",
+          "resolved": false
+        },
+        {
+          "id": "item2",
+          "itemName": "Bread",
+          "resolved": false
+        }
+      ],
+      "authorizedUsers": [
+        {
+          "userID": "user123"
+        }
+      ],
+      "visibility": true,
+      "uuIdentity": "identity001",
+      "uuidentityName": "Michal Havlik",
+      "id": "5"
+    },
+    {
+      "name": "Michael List",
+      "ownerId": "12345678",
+      "awid": "987654321",
+      "archived": true,
+      "sys": {
+        "cts": "2023-11-27T12:00:00Z",
+        "mts": "2023-11-27T15:00:00Z",
+        "rev": 6
+      },
+      "shoppingListItems": [
+        {
+          "id": "item1",
+          "itemName": "Milk",
+          "resolved": false
+        },
+        {
+          "id": "item2",
+          "itemName": "Bread",
+          "resolved": false
+        }
+      ],
+      "authorizedUsers": [
+        {
+          "userID": "user123"
+        }
+      ],
+      "visibility": true,
+      "uuIdentity": "identity001",
+      "uuidentityName": "Michal Havlik",
+      "id": "6"
+    },
+    {
+      "name": "Chloe List",
+      "ownerId": "12345678",
+      "awid": "987654321",
+      "archived": true,
+      "sys": {
+        "cts": "2023-11-27T12:00:00Z",
+        "mts": "2023-11-27T15:00:00Z",
+        "rev": 6
+      },
+      "shoppingListItems": [
+        {
+          "id": "item1",
+          "itemName": "Milk",
+          "resolved": false
+        },
+        {
+          "id": "item2",
+          "itemName": "Bread",
+          "resolved": false
+        }
+      ],
+      "authorizedUsers": [
+        {
+          "userID": "user123"
+        }
+      ],
+      "visibility": true,
+      "uuIdentity": "identity001",
+      "uuidentityName": "Michal Havlik",
+      "id": "7"
+    },
+    {
+      "name": "Ethan List",
+      "ownerId": "12345678",
+      "awid": "987654321",
+      "archived": true,
+      "sys": {
+        "cts": "2023-11-27T12:00:00Z",
+        "mts": "2023-11-27T15:00:00Z",
+        "rev": 6
+      },
+      "shoppingListItems": [
+        {
+          "id": "item1",
+          "itemName": "Milk",
+          "resolved": false
+        },
+        {
+          "id": "item2",
+          "itemName": "Bread",
+          "resolved": false
+        }
+      ],
+      "authorizedUsers": [
+        {
+          "userID": "user123"
+        }
+      ],
+      "visibility": true,
+      "uuIdentity": "identity001",
+      "uuidentityName": "Michal Havlik",
+      "id": "8"
+    },
+    {
+      "name": "Olivia List",
+      "ownerId": "12345678",
+      "awid": "987654321",
+      "archived": true,
+      "sys": {
+        "cts": "2023-11-27T12:00:00Z",
+        "mts": "2023-11-27T15:00:00Z",
+        "rev": 6
+      },
+      "shoppingListItems": [
+        {
+          "id": "item1",
+          "itemName": "Milk",
+          "resolved": false
+        },
+        {
+          "id": "item2",
+          "itemName": "Bread",
+          "resolved": false
+        }
+      ],
+      "authorizedUsers": [
+        {
+          "userID": "user123"
+        }
+      ],
+      "visibility": true,
+      "uuIdentity": "identity001",
+      "uuidentityName": "Michal Havlik",
+      "id": "list001"
+    },
+    {
+      "name": "Sophia List",
+      "ownerId": "12345678",
+      "awid": "987654321",
+      "archived": true,
+      "sys": {
+        "cts": "2023-11-27T12:00:00Z",
+        "mts": "2023-11-27T15:00:00Z",
+        "rev": 6
+      },
+      "shoppingListItems": [
+        {
+          "id": "item1",
+          "itemName": "Milk",
+          "resolved": false
+        },
+        {
+          "id": "item2",
+          "itemName": "Bread",
+          "resolved": false
+        }
+      ],
+      "authorizedUsers": [
+        {
+          "userID": "user123"
+        }
+      ],
+      "visibility": true,
+      "uuIdentity": "identity001",
+      "uuidentityName": "Michal Havlik",
+      "id": "9"
+    },
+    {
+      "name": "Matthew List",
+      "ownerId": "12345678",
+      "awid": "987654321",
+      "archived": true,
+      "sys": {
+        "cts": "2023-11-27T12:00:00Z",
+        "mts": "2023-11-27T15:00:00Z",
+        "rev": 6
+      },
+      "shoppingListItems": [
+        {
+          "id": "item1",
+          "itemName": "Milk",
+          "resolved": false
+        },
+        {
+          "id": "item2",
+          "itemName": "Bread",
+          "resolved": false
+        }
+      ],
+      "authorizedUsers": [
+        {
+          "userID": "user123"
+        }
+      ],
+      "visibility": true,
+      "uuIdentity": "identity001",
+      "uuidentityName": "Michal Havlik",
+      "id": "10"
+    },
+    {
+      "name": "Isabella List",
+      "ownerId": "12345678",
+      "awid": "987654321",
+      "archived": true,
+      "sys": {
+        "cts": "2023-11-27T12:00:00Z",
+        "mts": "2023-11-27T15:00:00Z",
+        "rev": 6
+      },
+      "shoppingListItems": [
+        {
+          "id": "item1",
+          "itemName": "Milk",
+          "resolved": false
+        },
+        {
+          "id": "item2",
+          "itemName": "Bread",
+          "resolved": false
+        }
+      ],
+      "authorizedUsers": [
+        {
+          "userID": "user123"
+        }
+      ],
+      "visibility": true,
+      "uuIdentity": "identity001",
+      "uuidentityName": "Michal Havlik",
+      "id": "list001"
+    },
+    {
+      "name": "Jacob List",
+      "ownerId": "12345678",
+      "awid": "987654321",
+      "archived": true,
+      "sys": {
+        "cts": "2023-11-27T12:00:00Z",
+        "mts": "2023-11-27T15:00:00Z",
+        "rev": 6
+      },
+      "shoppingListItems": [
+        {
+          "id": "item1",
+          "itemName": "Milk",
+          "resolved": false
+        },
+        {
+          "id": "item2",
+          "itemName": "Bread",
+          "resolved": false
+        }
+      ],
+      "authorizedUsers": [
+        {
+          "userID": "user123"
+        }
+      ],
+      "visibility": true,
+      "uuIdentity": "identity001",
+      "uuidentityName": "Michal Havlik",
+      "id": "11"
+    },
+    {
+      "name": "Mia List",
+      "ownerId": "12345678",
+      "awid": "987654321",
+      "archived": true,
+      "sys": {
+        "cts": "2023-11-27T12:00:00Z",
+        "mts": "2023-11-27T15:00:00Z",
+        "rev": 6
+      },
+      "shoppingListItems": [
+        {
+          "id": "item1",
+          "itemName": "Milk",
+          "resolved": false
+        },
+        {
+          "id": "item2",
+          "itemName": "Bread",
+          "resolved": false
+        }
+      ],
+      "authorizedUsers": [
+        {
+          "userID": "user123"
+        }
+      ],
+      "visibility": true,
+      "uuIdentity": "identity001",
+      "uuidentityName": "Michal Havlik",
+      "id": "12"
+    },
+    {
+      "name": "Lucas List",
+      "ownerId": "12345678",
+      "awid": "987654321",
+      "archived": true,
+      "sys": {
+        "cts": "2023-11-27T12:00:00Z",
+        "mts": "2023-11-27T15:00:00Z",
+        "rev": 6
+      },
+      "shoppingListItems": [
+        {
+          "id": "item1",
+          "itemName": "Milk",
+          "resolved": false
+        },
+        {
+          "id": "item2",
+          "itemName": "Bread",
+          "resolved": false
+        }
+      ],
+      "authorizedUsers": [
+        {
+          "userID": "user123"
+        }
+      ],
+      "visibility": true,
+      "uuIdentity": "identity001",
+      "uuidentityName": "Michal Havlik",
+      "id": "list001"
+    },
+    {
+      "name": "Ava List",
+      "ownerId": "12345678",
+      "awid": "987654321",
+      "archived": true,
+      "sys": {
+        "cts": "2023-11-27T12:00:00Z",
+        "mts": "2023-11-27T15:00:00Z",
+        "rev": 6
+      },
+      "shoppingListItems": [
+        {
+          "id": "item1",
+          "itemName": "Milk",
+          "resolved": false
+        },
+        {
+          "id": "item2",
+          "itemName": "Bread",
+          "resolved": false
+        }
+      ],
+      "authorizedUsers": [
+        {
+          "userID": "user123"
+        }
+      ],
+      "visibility": true,
+      "uuIdentity": "identity001",
+      "uuidentityName": "Michal Havlik",
+      "id": "13"
+    },
+    {
+      "name": "Nathan List",
+      "ownerId": "12345678",
+      "awid": "987654321",
+      "archived": true,
+      "sys": {
+        "cts": "2023-11-27T12:00:00Z",
+        "mts": "2023-11-27T15:00:00Z",
+        "rev": 6
+      },
+      "shoppingListItems": [
+        {
+          "id": "item1",
+          "itemName": "Milk",
+          "resolved": false
+        },
+        {
+          "id": "item2",
+          "itemName": "Bread",
+          "resolved": false
+        }
+      ],
+      "authorizedUsers": [
+        {
+          "userID": "user123"
+        }
+      ],
+      "visibility": true,
+      "uuIdentity": "identity001",
+      "uuidentityName": "Michal Havlik",
+      "id": "17"
+    },
+    {
+      "name": "Emma List",
+      "ownerId": "12345678",
+      "awid": "987654321",
+      "archived": true,
+      "sys": {
+        "cts": "2023-11-27T12:00:00Z",
+        "mts": "2023-11-27T15:00:00Z",
+        "rev": 6
+      },
+      "shoppingListItems": [
+        {
+          "id": "item1",
+          "itemName": "Milk",
+          "resolved": false
+        },
+        {
+          "id": "item2",
+          "itemName": "Bread",
+          "resolved": false
+        }
+      ],
+      "authorizedUsers": [
+        {
+          "userID": "user123"
+        }
+      ],
+      "visibility": true,
+      "uuIdentity": "identity001",
+      "uuidentityName": "Michal Havlik",
+      "id": "14"
+    },
+    {
+      "name": "Liam List",
+      "ownerId": "12345678",
+      "awid": "987654321",
+      "archived": true,
+      "sys": {
+        "cts": "2023-11-27T12:00:00Z",
+        "mts": "2023-11-27T15:00:00Z",
+        "rev": 6
+      },
+      "shoppingListItems": [
+        {
+          "id": "item1",
+          "itemName": "Milk",
+          "resolved": false
+        },
+        {
+          "id": "item2",
+          "itemName": "Bread",
+          "resolved": false
+        }
+      ],
+      "authorizedUsers": [
+        {
+          "userID": "user123"
+        }
+      ],
+      "visibility": true,
+      "uuIdentity": "identity001",
+      "uuidentityName": "Michal Havlik",
+      "id": "15"
+    },
+    {
+      "name": "Grace List",
+      "ownerId": "12345678",
+      "awid": "987654321",
+      "archived": true,
+      "sys": {
+        "cts": "2023-11-27T12:00:00Z",
+        "mts": "2023-11-27T15:00:00Z",
+        "rev": 6
+      },
+      "shoppingListItems": [
+        {
+          "id": "item1",
+          "itemName": "Kebab",
+          "resolved": false
+        },
+        {
+          "id": "item2",
+          "itemName": "Pizza",
+          "resolved": false
+        }
+      ],
+      "authorizedUsers": [
+        {
+          "userID": "user123"
+        }
+      ],
+      "visibility": true,
+      "uuIdentity": "identity001",
+      "uuidentityName": "Michal Havlik",
+      "id": "16"
+    }
+
+  ],
+  "pageInfo": { "pageIndex": 0, "pageSize": 100, "total": 17 },
+  "uuAppErrorMap": {}
+}

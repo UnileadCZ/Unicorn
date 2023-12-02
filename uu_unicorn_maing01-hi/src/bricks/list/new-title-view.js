@@ -1,9 +1,9 @@
 //@@viewOn:imports
 import { createVisualComponent, PropTypes, Utils, useState } from "uu5g05";
 import { Button, useAlertBus } from "uu5g05-elements";
-import CreateUserForm from "./user-registration-form.js";
+import NewTitleForm from "./new-title-form.js";
 import Config from "./config/config.js";
-
+import { useJokes } from "../context-list.js";
 //@@viewOff:imports
 
 //@@viewOn:constants
@@ -14,16 +14,16 @@ const Mode = {
 //@@viewOff:constants
 
 //@@viewOn:helpers
-function CreateUserButton(props) {
+function NewTitleButton(props) {
   return (
     <Button {...props} colorScheme="primary" significance="highlighted">
-      Add user
+      change title
     </Button>
   );
 }
 //@@viewOff:helpers
 
-const CreateUserView = createVisualComponent({
+const NewTitleView = createVisualComponent({
   //@@viewOn:statics
   uu5Tag: Config.TAG + "CreateUserView",
   //@@viewOff:statics
@@ -44,40 +44,45 @@ const CreateUserView = createVisualComponent({
     //@@viewOn:private
     const { addAlert } = useAlertBus();
     const [mode, setMode] = useState(Mode.BUTTON);
+    const { jokeDataList } = useJokes();
 
     function handleSubmit(event) {
+
+
       try {
       
-        props.onCreate(event.data.value.name, event.data.value.id);
+        jokeDataList.handlerMap.updateName();
+        addAlert({
+          message: `List title has been updated to ${event.data.value.name}.`,
+          priority: "success",
+          durationMs: 2000,
+        });
       } catch (error) {
-        // We pass Error.Message instance to the Uu5Forms.Form that shows alert
-        throw new Utils.Error.Message("User create failed!", error);
+        console.error(error);
+        throw new Utils.Error.Message("Title update failed!", error);
       }
-
-      addAlert({
-        message: `User ${event.data.value.name} has been created.`,
-        priority: "success",
-        durationMs: 2000,
-      });
-
       setMode(Mode.BUTTON);
     }
+
     //@@viewOff:private
 
     //@@viewOn:render
     const { elementProps } = Utils.VisualComponent.splitProps(props);
 
-    switch (mode) {
-      case Mode.BUTTON:
-        return <CreateUserButton {...elementProps} onClick={() => setMode(Mode.FORM)} />;
-      default:
-        return <CreateUserForm {...elementProps} onSubmit={handleSubmit} onCancel={() => setMode(Mode.BUTTON)} />;
-    }
+    return (
+      <>
+        {(mode === Mode.BUTTON ? (
+            <NewTitleButton {...elementProps} onClick={() => setMode(Mode.FORM)} />
+          ) : (
+            <NewTitleForm {...elementProps} onSubmit={handleSubmit} onCancel={() => setMode(Mode.BUTTON)} />
+          ))}
+      </>
+    );
     //@@viewOff:render
   },
 });
 
 //@@viewOn:exports
-export { CreateUserView };
-export default CreateUserView;
+export { NewTitleView };
+export default NewTitleView;
 //@@viewOff:exports

@@ -1,7 +1,7 @@
 //@@viewOn:imports
 import { createVisualComponent, PropTypes, Utils, useState } from "uu5g05";
 import { Button, useAlertBus } from "uu5g05-elements";
-import NewTitleForm from "./new-header-form.js";
+import CreateUserForm from "./create-user-form.js";
 import Config from "./config/config.js";
 import { useJokes } from "../context-list.js";
 //@@viewOff:imports
@@ -14,16 +14,16 @@ const Mode = {
 //@@viewOff:constants
 
 //@@viewOn:helpers
-function NewTitleButton(props) {
+function CreateUserButton(props) {
   return (
     <Button {...props} colorScheme="primary" significance="highlighted">
-      change title
+      Add user
     </Button>
   );
 }
 //@@viewOff:helpers
 
-const NewTitleView = createVisualComponent({
+const CreateUserView = createVisualComponent({
   //@@viewOn:statics
   uu5Tag: Config.TAG + "CreateUserView",
   //@@viewOff:statics
@@ -43,47 +43,41 @@ const NewTitleView = createVisualComponent({
   render(props) {
     //@@viewOn:private
     const { addAlert } = useAlertBus();
+    const { jokeDataList } = useJokes()
     const [mode, setMode] = useState(Mode.BUTTON);
-    const { isUserOwner, currentListId } = useJokes();
 
     function handleSubmit(event) {
-      // console.log("Event object:", event);
-
       try {
-        const newName = event.data.value.name;
-        props.changeListName(newName);
-        addAlert({
-          message: `List title has been updated to ${newName}.`,
-          priority: "success",
-          durationMs: 2000,
-        });
+        jokeDataList.handlerMap.createUser();
       } catch (error) {
-        console.error(error);
-        throw new Utils.Error.Message("Title update failed!", error);
+        // We pass Error.Message instance to the Uu5Forms.Form that shows alert
+        throw new Utils.Error.Message("User create failed!", error);
       }
+
+      addAlert({
+        message: `User ${event.data.value.name} has been created.`,
+        priority: "success",
+        durationMs: 2000,
+      });
+
       setMode(Mode.BUTTON);
     }
-
     //@@viewOff:private
 
     //@@viewOn:render
     const { elementProps } = Utils.VisualComponent.splitProps(props);
 
-    return (
-      <>
-        {isUserOwner(currentListId) && // Conditionally render based on ownership
-          (mode === Mode.BUTTON ? (
-            <NewTitleButton {...elementProps} onClick={() => setMode(Mode.FORM)} />
-          ) : (
-            <NewTitleForm {...elementProps} onSubmit={handleSubmit} onCancel={() => setMode(Mode.BUTTON)} />
-          ))}
-      </>
-    );
+    switch (mode) {
+      case Mode.BUTTON:
+        return <CreateUserButton {...elementProps} onClick={() => setMode(Mode.FORM)} />;
+      default:
+        return <CreateUserForm {...elementProps} onSubmit={handleSubmit} onCancel={() => setMode(Mode.BUTTON)} />;
+    }
     //@@viewOff:render
   },
 });
 
 //@@viewOn:exports
-export { NewTitleView };
-export default NewTitleView;
+export { CreateUserView };
+export default CreateUserView;
 //@@viewOff:exports

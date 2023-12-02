@@ -5,7 +5,7 @@ import RouteBar from "../core/route-bar.js";
 import Config from "./config/config.js";
 import { useJokes } from "../bricks/context-list.js";
 import ListsView from "../bricks/lists/lists-view.js";
-import CreateListView from "../bricks/lists/generate-list-form.js";
+import CreateListView from "../bricks/lists/create-list-view.js";
 //@@viewOff:imports
 
 //@@viewOn:constants
@@ -14,19 +14,19 @@ import CreateListView from "../bricks/lists/generate-list-form.js";
 //@@viewOn:css
 const Css = {
   main: () => Config.Css.css`
-  padding: 16px;
-  max-width: 1200px;
-  margin: auto;
+    padding: 16px;
+    max-width: 1200px;
+    margin: auto;
 
-  .create-list-view {
-    margin-top: 12px;
-    margin-bottom: 24px;
-    display: flex;
-  }
+    .create-list-view {
+      margin-bottom: 24px;
+      padding: 16px;
+      border-bottom: 1px solid #ccc;
+    }
 
-  .lists-view {
-    margin-top: px;
-  }
+    .lists-view {
+      margin-top: px;
+    }
   `,
 };
 //@@viewOff:css
@@ -41,17 +41,16 @@ let Lists = createVisualComponent({
 
   render() {
     //@@viewOn:render
-    const { remove, update, create } = useJokes();
+    const { jokeDataList, remove, update } = useJokes();
     //console.log(currentListId);
     return (
       <>
         <RouteBar />
         <div className={Css.main()}>
-          <div className="generate-list-view">
-            <CreateListView onCreate={create} />
-          </div>
+          <div className="create-list-view"></div>
+          <h2>Lists</h2>
           <div className="lists-view">
-            <ListsView onDelete={remove} onUpdate={update} />
+            <ListsView />
           </div>
         </div>
       </>

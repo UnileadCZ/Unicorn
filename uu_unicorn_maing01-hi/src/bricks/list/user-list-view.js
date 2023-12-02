@@ -2,7 +2,8 @@
 import { createVisualComponent, Utils } from "uu5g05";
 import { useAlertBus } from "uu5g05-elements";
 import Config from "./config/config.js";
-import UserTile from "./user-brick.js";
+import { useJokes } from "../context-list.js";
+import UserTile from "./user-tile.js";
 //@@viewOff:imports
 
 //@@viewOn:constants
@@ -33,6 +34,7 @@ const UserListView = createVisualComponent({
 
   render(props) {
     //@@viewOn:private
+    const { jokeDataList } = useJokes();
     const { addAlert } = useAlertBus();
 
     function showError(error, header = "") {
@@ -45,15 +47,15 @@ const UserListView = createVisualComponent({
     function handleDelete(event) {
       const user = event.data;
       try {
-        props.onDelete(user);
+        jokeDataList.handlerMap.deleteUser();
         addAlert({
-          message: `The user ${user.name} has been deleted.`,
+          message: `The user ${"asd"} has been deleted.`,
           priority: "success",
           durationMs: 2000,
         });
       } catch (error) {
-        ListView.logger.error("Error deleting joke", error);
-        showError(error, "Joke delete failed!");
+        ListView.logger.error("Error deleting user", error);
+        showError(error, "User delete failed!");
       }
     }
     //@@viewOff:private
@@ -63,27 +65,19 @@ const UserListView = createVisualComponent({
 
     //@@viewOn:render
     const attrs = Utils.VisualComponent.getAttrs(props);
-
+    console.log(props.shoppingList?.authorizedUsers)
     return (
       <div {...attrs}>
-        {props.shoppingList.userList?.map((joke) => (
+        {props.shoppingList?.authorizedUsers?.map((joke) => (
           <div style={{ display: "flex", flexDirection: "row", gap: 8 }} key={joke.id}>
             <UserTile
-              name={joke.name}
+              name={joke.id}
               joke={joke}
               onDelete={handleDelete}
-              style={{
-                width: 200,
-                display: "flex",
-                justifyContent: "space-around",
-                alignItems: "center",
-                borderRadius: "8px",
-                margin: "8px",
-                padding: "8px",
-              }}
+              style={{ width: 200, display: "flex", justifyContent: "space-around", alignItems: "center" }}
             />
           </div>
-        ))}
+        ))} 
       </div>
     );
     //@@viewOff:render

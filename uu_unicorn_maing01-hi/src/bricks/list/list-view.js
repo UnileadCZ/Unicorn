@@ -1,9 +1,13 @@
 //@@viewOn:imports
-import { createVisualComponent, PropTypes, Utils } from "uu5g05";
+import { createVisualComponent, PropTypes, Utils, useRoute, useMemo } from "uu5g05";
 import { useAlertBus } from "uu5g05-elements";
-import Tile from "./brick.js";
-import ResolvedTile from "./final-brick.js";
+import Tile from "./tile";
+import ResolvedTile from "./resolved-tile";
+import UserListView from "./user-list-view.js";
 import Config from "./config/config.js";
+import { useJokes } from "../context-list.js";
+import CreateUserView from "./create-user-view.js";
+import NewTitleView from "./new-title-view.js";
 //@@viewOff:imports
 
 //@@viewOn:css
@@ -19,7 +23,6 @@ const Css = {
 
   listViewTile: () =>
     Config.Css.css({
-      borderRadius: "8px",
       width: 800,
       margin: "24px",
       "@media (max-width: 1000px)": {
@@ -53,6 +56,28 @@ const ListView = createVisualComponent({
 
   render(props) {
     //@@viewOn:private
+
+    const { jokeDataList, isUserOwner } = useJokes();
+    const [route] = useRoute();
+    const detailId = route.params.id;
+
+
+ 
+
+
+
+    const shoppingListDetail = useMemo(() => {
+      return jokeDataList.data?.find((shoppingList) => {
+        return shoppingList.data.id === detailId;
+      });
+    }, [jokeDataList, detailId]);
+       
+    
+    
+   
+      console.log(shoppingListDetail.data)
+  
+
     const { addAlert } = useAlertBus();
 
     function showError(error, header = "") {
@@ -67,9 +92,9 @@ const ListView = createVisualComponent({
       const item = event.data;
 
       try {
-        props.onDelete(props.id, item.id);
+        jokeDataList.handlerMap.deleteItem();
         addAlert({
-          message: `The joke ${item.name} has been deleted.`,
+          message: `The joke ${"..."} has been deleted.`,
           priority: "success",
           durationMs: 2000,
         });
@@ -80,12 +105,12 @@ const ListView = createVisualComponent({
     }
 
     function handleUpdate(event) {
-      const id = event.data;
+      const id = event;
 
       try {
-        props.onUpdate(props.id, id.id);
+        jokeDataList.handlerMap.resolveItem();
         addAlert({
-          message: `The item ${id.name} has been resolved.`,
+          message: `The item ${"dd"} has been resolved.`,
           priority: "success",
           durationMs: 2000,
         });
@@ -101,19 +126,31 @@ const ListView = createVisualComponent({
 
     return (
       <div {...attrs}>
-        {props.showResolved
-          ? props.resolvedItems.singleShoppingList?.map((resolvedItem) => (
-              <ResolvedTile key={resolvedItem.id} joke={resolvedItem} className={Css.listViewTile()} />
-            ))
-          : props.shoppingList.singleShoppingList?.map((item) => (
-              <Tile
-                key={item.id}
-                joke={item}
-                onDelete={handleDelete}
-                onUpdate={handleUpdate}
-                className={Css.listViewTile()}
-              />
-            ))}
+                  <div>
+            <h1>USER LIST</h1>
+            {isUserOwner(detailId) && 
+            <div>
+                 <NewTitleView/>
+            <CreateUserView />
+            </div>
+         
+            }
+            {/* {isOwner && <CreateUserView onCreate={createUser} style={{ maxWidth: 400, display: "block" }} />} */}
+            <UserListView shoppingList={shoppingListDetail.data} />
+          </div>
+        <h2> {shoppingListDetail.data.name}</h2>
+        {shoppingListDetail.data.shoppingListItems?.map((item) => {
+          return (
+            <Tile
+             key={item.id}
+              item={item}
+              className={Css.listViewTile()}
+              onDelete={handleDelete}
+              onUpdate={handleUpdate}
+            />
+          );
+        })}
+           
       </div>
     );
     //@@viewOff:render

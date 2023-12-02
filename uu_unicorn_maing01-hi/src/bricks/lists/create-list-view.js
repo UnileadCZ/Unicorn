@@ -15,7 +15,7 @@ const Mode = {
 //@@viewOn:helpers
 function CreateButton(props) {
   return (
-    <Button {...props} colorScheme="primary" significance="highlighted" style={{ backgroundColor: "#81c535"}}>
+    <Button {...props} colorScheme="primary" significance="highlighted">
       Create List
     </Button>
   );
@@ -46,7 +46,7 @@ const CreateListView = createVisualComponent({
 
     function handleSubmit(event) {
       try {
-        props.onCreate(event.data.value.name, event.data.value.owner, event.data.value.ownerName);
+        props.onCreate();
       } catch (error) {
         // We pass Error.Message instance to the Uu5Forms.Form that shows alert
         throw new Utils.Error.Message("list create failed!", error);

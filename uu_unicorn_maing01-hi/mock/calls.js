@@ -1,4 +1,4 @@
-import Calls from "../src/calls.js";
+import Calls from "../src/calls";
 
 let appAssetsBaseUri =
   document.baseURI ||
