@@ -58,3 +58,4 @@ const authorizedUserDeleteDtoInType = shape({
   listId: id().isRequired(),
   userId: string(1, 255).isRequired(),
 });
+

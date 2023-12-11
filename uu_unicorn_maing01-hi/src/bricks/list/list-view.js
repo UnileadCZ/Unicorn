@@ -12,6 +12,15 @@ import NewTitleView from "./new-title-view.js";
 
 //@@viewOn:css
 const Css = {
+  mainContainer: () =>
+  Config.Css.css({
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center', // center items vertically in the container
+    width: '100%', // take full width
+    maxWidth: '800px', // Adjust this value as needed
+    margin: '0 auto', 
+  }),
   
   headerStyle: () =>
     Config.Css.css({
@@ -126,7 +135,7 @@ const ListView = createVisualComponent({
     const attrs = Utils.VisualComponent.getAttrs(props);
 
     return (
-      <div {...attrs}>
+      <div {...attrs} className={Css.mainContainer()}>
         <h1 className={Css.headerStyle()}>USER LIST</h1>
 
         {isUserOwner(detailId) && (

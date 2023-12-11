@@ -1,6 +1,6 @@
 "use strict";
 
-const ShoppingListAbl = require("../../abl/ShoppingList-abl.js");
+const ShoppingListAbl = require("../../abl/shopping-list-abl.js");
 
 class ShoppingListController {
   list(ucEnv) {

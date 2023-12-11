@@ -32,7 +32,7 @@ const Css = {
     Config.Css.css({
       display: "flex",
       flexDirection: "column",
-      justifyContent: "space-around",
+      justifyContent: "center",
       backgroundColor: "#e8eaf6", // Updated background color
       color: "#2c3e50", // Updated text color for contrast
       padding: "20px", // Added padding

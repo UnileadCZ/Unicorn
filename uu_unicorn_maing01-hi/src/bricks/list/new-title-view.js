@@ -16,7 +16,12 @@ const Mode = {
 //@@viewOn:helpers
 function NewTitleButton(props) {
   return (
-    <Button {...props} colorScheme="primary" style={{ margin: 10 }} significance="highlighted">
+    <Button
+      {...props}
+      colorScheme="primary"
+      style={{ margin: 10, backgroundColor: "#81c535" }}
+      significance="highlighted"
+    >
       Change title
     </Button>
   );

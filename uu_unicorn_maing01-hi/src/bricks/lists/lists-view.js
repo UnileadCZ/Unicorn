@@ -19,7 +19,7 @@ const Css = {
   border-radius: 10px;
   box-shadow: 0 3px 6px rgba(0,0,0,0.15);
   background-color: #f8f8f8;
-  text-align: center; // Center-aligns inline or inline-block elements like buttons
+  text-align: center;
 
   .toggle-button {
     background-color: #e6e6e6;
@@ -32,18 +32,26 @@ const Css = {
     font-weight: bold;
     color: #333;
     transition: background-color 0.3s;
-    display: inline-block; // Makes the button an inline-block element
-
-    &:hover {
-      background-color: #dcdcdc;
-    }
+    display: inline-block;
   }
-  
 
   > div {
     display: flex;
-    justify-content: center; // Centers the child elements (list tiles)
-    margin-bottom: 10px; // Optional: Adds some spacing between the list tiles
+    justify-content: center;
+    flex-wrap: wrap; // Enable wrapping of child elements
+    margin-bottom: 10px;
+  }
+
+  @media (max-width: 600px) { // Adjust this value based on your requirements
+    padding: 10px;
+    .toggle-button {
+      padding: 5px 10px;
+      font-size: 0.8em;
+    }
+
+    > div {
+      display: block; // Stack the elements vertically on smaller screens
+    }
   }
   `,
 };

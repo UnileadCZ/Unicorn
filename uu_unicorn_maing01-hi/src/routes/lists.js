@@ -14,7 +14,7 @@ import CreateListView from "../bricks/lists/create-list-view.js";
 //@@viewOn:css
 const Css = {
   main: () => Config.Css.css`
-    padding: 16px;
+padding: 16px;
     max-width: 1200px;
     margin: auto;
 
@@ -26,6 +26,20 @@ const Css = {
 
     .lists-view {
       margin-top: px;
+      // Ensure the width is flexible
+      width: 100%;
+
+      @media (max-width: 768px) {
+        padding: 8px;
+        // Adjust layout for smaller screens
+      }
+    }
+
+    // Additional media query for very small screens
+    @media (max-width: 480px) {
+      .lists-view {
+        // Further adjustments for smaller devices
+      }
     }
   `,
 };

@@ -16,7 +16,7 @@ const Mode = {
 //@@viewOn:helpers
 function CreateUserButton(props) {
   return (
-    <Button {...props} colorScheme="primary" significance="highlighted">
+    <Button {...props} colorScheme="primary" style={{ backgroundColor: "#81c535" }} significance="highlighted">
       Add user
     </Button>
   );
@@ -43,7 +43,7 @@ const CreateUserView = createVisualComponent({
   render(props) {
     //@@viewOn:private
     const { addAlert } = useAlertBus();
-    const { jokeDataList } = useJokes()
+    const { jokeDataList } = useJokes();
     const [mode, setMode] = useState(Mode.BUTTON);
 
     function handleSubmit(event) {

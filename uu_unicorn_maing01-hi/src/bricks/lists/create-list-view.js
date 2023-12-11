@@ -20,6 +20,7 @@ function CreateButton(props) {
       colorScheme="primary"
       significance="highlighted"
       style={{
+        backgroundColor: "#81c535",
         margin: "20px",
         padding: "25px"
       }}
